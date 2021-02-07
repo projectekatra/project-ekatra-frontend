@@ -1,0 +1,114 @@
+/* Single Page thing*/
+.post-page-container {
+margin: 80px auto;
+width: 95%;
+max-width: 800px;
+text-align: justify;
+}
+
+.post-page-categories{
+margin-top: 24px;
+}
+.post-page-category {
+text-decoration: none;
+padding-bottom: 0.7px;
+color: #000000;
+font-family: 'Roboto Condensed', 'Asap Condensed', 'neue-haas-unica', sans-serif;
+font-weight: 600;
+font-size: 14px;
+letter-spacing: 0px;
+line-height: 20px;
+text-transform: uppercase;
+margin-bottom: 0px;
+border-bottom: 3px solid black;
+display: inline-block;
+margin-right: 8px;
+}
+
+.post-page-heading {
+	font-family: source-serif-pro, 'Source Serif Pro', 'Lyon Display Web','LyonDisplay-Medium', serif;
+	font-weight: 600;
+	font-size: 40px;
+	line-height: 64px;
+	letter-spacing: -2px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+        text-decoration: none;
+        color: black;
+        display: block;
+}
+
+.post-page-heading:hover{
+text-decoration: none;
+color: rgba(0,0,0,0.6);
+}
+
+.post-page-info {
+	color: black;
+	display: inline-block;
+	font-family: 'Raleway', sans-serif;
+	font-size: 15px;
+        font-weight: 200;
+	line-height: 16px;
+        margin-bottom: 20px;
+}
+
+.post-page-info span{
+color: #949494;
+opacity: 1;
+}
+
+
+.post-page-content{
+font-family: 'Lusitana', serif;
+font-size: 18px;
+line-height: 25px;
+}
+
+.post-page-content p{
+margin: 0;}
+
+.post-page-recommend-post{
+float: left;
+width: 230px;
+padding: 5px;
+margin:20px 10px 10px;
+}
+
+.post-page-recommend-heading{
+font-size: 18px;
+font-family: source-serif-pro, 'Source Serif Pro', serif;
+font-weight: bold;
+line-height: 23px;
+margin-bottom: 3px;
+text-decoration: none;
+        color: black;
+        display: block;
+}
+
+.post-page-recommend-heading:hover{
+text-decoration: none;
+color: rgba(0,0,0,0.6);
+}
+
+.post-page-recommend-content{
+color: black;
+display: inline-block;
+font-family: 'Raleway', sans-serif;
+font-size: 14px;
+font-weight: 300;
+line-height: 18px;
+letter-spacing: 1px;
+overflow-wrap: break-word;
+
+}
+
+.post-page-image{
+max-width: 400px;
+width: 98%;
+}
+
+.post-page-recommend-content a{
+text-decoration: none;
+color: green;
+}/*end s here*/

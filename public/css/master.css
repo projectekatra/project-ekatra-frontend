@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+*{
+outline: none;
+}
+@font-face{
+font-family: 'Projecttitle';
+src: url('zIlana Bloom Regular.ttf');
+}
+body {
+  margin: 0;
+}
+
+/*
+Error 404
+*/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Catamaran:400,800');
+.error-container {
+  text-align: center;
+  font-size: 180px;
+  font-family: 'Catamaran', sans-serif;
+  font-weight: 800;
+  margin: 0px 15px;
+}
+.error-container > span {
+  display: inline-block;
+  line-height: 0.7;
+  position: relative;
+  color: #FFB485;
+}
+.error-container > span {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+.error-container > span:nth-of-type(1) {
+  color: #D1F2A5;
+  animation: colordancing 4s infinite;
+}
+.error-container > span:nth-of-type(3) {
+  color: #F56991;
+  animation: colordancing2 4s infinite;
+}
+.error-container > span:nth-of-type(2) {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+}
+.error-container > span:nth-of-type(2):before,
+.error-container > span:nth-of-type(2):after {
+	border-radius: 0%;
+	content:"";
+	position: absolute;
+	top: 0; left: 0;
+	width: inherit; height: inherit;
+  border-radius: 999px;
+	box-shadow: inset 30px 0 0 rgba(209, 242, 165, 0.4),
+				inset 0 30px 0 rgba(239, 250, 180, 0.4),
+				inset -30px 0 0 rgba(255, 196, 140, 0.4),	
+				inset 0 -30px 0 rgba(245, 105, 145, 0.4);
+  animation: shadowsdancing 4s infinite;
+}
+.error-container > span:nth-of-type(2):before {
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+			transform: rotate(45deg);
+}
+
+.screen-reader-text {
+    position: absolute;
+    top: -9999em;
+    left: -9999em;
+}
+@keyframes shadowsdancing {
+  0% {
+    box-shadow: inset 30px 0 0 rgba(209, 242, 165, 0.4),
+				inset 0 30px 0 rgba(239, 250, 180, 0.4),
+				inset -30px 0 0 rgba(255, 196, 140, 0.4),	
+				inset 0 -30px 0 rgba(245, 105, 145, 0.4);
+  }
+  25% {
+    box-shadow: inset 30px 0 0 rgba(245, 105, 145, 0.4),
+				inset 0 30px 0 rgba(209, 242, 165, 0.4),
+				inset -30px 0 0 rgba(239, 250, 180, 0.4),	
+				inset 0 -30px 0 rgba(255, 196, 140, 0.4);
+  }
+  50% {
+     box-shadow: inset 30px 0 0 rgba(255, 196, 140, 0.4),
+				inset 0 30px 0 rgba(245, 105, 145, 0.4),
+				inset -30px 0 0 rgba(209, 242, 165, 0.4),	
+				inset 0 -30px 0 rgba(239, 250, 180, 0.4);
+  }
+  75% {
+   box-shadow: inset 30px 0 0 rgba(239, 250, 180, 0.4),
+				inset 0 30px 0 rgba(255, 196, 140, 0.4),
+				inset -30px 0 0 rgba(245, 105, 145, 0.4),	
+				inset 0 -30px 0 rgba(209, 242, 165, 0.4);
+  }
+  100% {
+    box-shadow: inset 30px 0 0 rgba(209, 242, 165, 0.4),
+				inset 0 30px 0 rgba(239, 250, 180, 0.4),
+				inset -30px 0 0 rgba(255, 196, 140, 0.4),	
+				inset 0 -30px 0 rgba(245, 105, 145, 0.4);
+  }
+}
+@keyframes colordancing {
+  0% {
+    color: #D1F2A5;
+  }
+  25% {
+    color: #F56991;
+  }
+  50% {
+    color: #FFC48C;
+  }
+  75% {
+    color: #EFFAB4;
+  }
+  100% {
+    color: #D1F2A5;
+  }
+}
+@keyframes colordancing2 {
+  0% {
+    color: #FFC48C;
+  }
+  25% {
+    color: #EFFAB4;
+  }
+  50% {
+    color: #D1F2A5;
+  }
+  75% {
+    color: #F56991;
+  }
+  100% {
+    color: #FFC48C;
+  }
+}
+
+/* demo stuff */
+
+.error-404box {
+  background-color: #416475;
+  padding: 0px 100px 100px 100px;
+}
+
+.zoom-area { 
+  max-width: 490px;
+  margin: 30px auto 30px;
+  font-size: 19px;
+  text-align: center;
+}
+.link-container {
+  text-align: center;
+}
+
+code {
+    color: #bdbdbd;
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    margin: 0 30px 25px;
+}
+
+code span {
+        color: #f0c674;
+    }
+
+   code i {
+        color: #b5bd68;
+    }
+
+   code em {
+        color: #b294bb;
+        font-style: unset;
+    }
+
+   code b {
+        color: #81a2be;
+        font-weight: 500;
+    }
+
+code a {
+    color: #8abeb7;
+    font-family: monospace;
+    font-size: 20px;
+    text-decoration: underline;
+    margin-top:10px;
+    display:inline-block
+}
+
+a.more-link {
+  text-transform: uppercase;
+  font-size: 13px;
+    background-color: #92a4ad;
+    padding: 10px 15px;
+    border-radius: 0;
+    color: #416475;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+    text-decoration: none;
+  margin-top: 50px;
+  letter-spacing: 1px;
+}
+
+/*Responsive Part*/
+@media screen and (min-width: 768px) {
+
+.top-single-post-heading {
+color: black;
+font-size: 1.8rem;
+font-family: 'Playfair Display', serif;
+text-decoration: none;
+}
+
+.top-single-post-label {
+font-size: 1.2rem;
+font-family: 'Dancing Script', cursive;
+}
+
+.top-single-post-category{
+font-family: 'PT Serif', serif;
+margin-left: 8px;
+text-decoration: none;
+color: green;
+}
+
+.top-post-button {
+ border: 2px solid #00748B;
+padding: 5px 10px;
+text-align: center;
+  vertical-align: center;
+  background: transparent;
+color: #00748B;
+font-size: 1rem;
+text-decoration: none;
+}
+}
+
+@media only screen and (min-width: 768px) {
+  .post-part {
+    margin-left: 250px;
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 4px 10px;
+  }
+  .single-post {
+    padding: 10px 20px;
+    margin-bottom: 6px;
+    margin-top: 6px;
+  }
+  .main-post-part {
+    padding: 20px;
+  }
+  .selection-part{position:-webkit-sticky; position:sticky; top:10px;}
+
+.top-single-post-heading {
+color: black;
+font-size: 1.8rem;
+font-family: 'Playfair Display', serif;
+text-decoration: none;
+}
+
+.top-single-post-label {
+font-size: 1.2rem;
+font-family: 'Dancing Script', cursive;
+}
+
+.top-single-post-category{
+font-family: 'PT Serif', serif;
+margin-left: 8px;
+text-decoration: none;
+color: green;
+}
+
+.top-post-button {
+ border: 2px solid #00748B;
+padding: 5px 10px;
+text-align: center;
+  vertical-align: center;
+  background: transparent;
+color: #00748B;
+font-size: 1rem;
+text-decoration: none;
+}
+}
+
+
+
+@media only screen and (max-width: 1020px) {
+
+.post-page-heading {
+	font-size: 29px;
+	line-height: 39px;
+	margin-top: 12px;
+	margin-bottom: 10px;
+}
+
+}
+
+@media only screen and (min-width: 800px) {
+.post-page-container p{
+margin: 5px 20px;
+}
+}
+
+@media only screen and (max-width: 790px) {
+.post-page-recommend-post {
+width: 80%;
+height: auto;
+}
+
+}
+
+/*Responsive thing ends here*/

@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+
+.profile-main-container{
+margin-top: 60px;
+width: 100%;
+background: #ffdcb8;
+min-height: calc(100vh - 60px);
+}
+
+.profile-name-title{
+display: flex;
+justify-content: space-between;
+font-size: 1.8rem;
+font-family: Oswald;
+padding-top: 15px;
+}
+
+
+.profile-subtype-main{
+padding: 40px;
+}
