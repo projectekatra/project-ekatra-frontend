@@ -2,7 +2,7 @@ import React, {
     useRef,
     useEffect
 } from 'react'
-import { baseUrl } from "../../shared/baseUrl"
+import { baseUrl } from "../shared/baseUrl"
 
 const Canvas = props => {
 

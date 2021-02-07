@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { baseUrl } from "../../shared/baseUrl";
+import { baseUrl } from "../shared/baseUrl";
 import Cookies from "js-cookie";
 
 function Login(props)

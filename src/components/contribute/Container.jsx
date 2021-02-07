@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CategorySelection from "./CategorySelection";
-import { baseUrl } from "../../shared/baseUrl"
+import { baseUrl } from "../shared/baseUrl"
 import Cookies from "js-cookie";
 
 function Container(props) {
