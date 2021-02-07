@@ -3,7 +3,7 @@ import Card from "./SingleCard";
 import Loading from "./Loading";
 import Heading from "../shared/Heading";
 import Upvotes from "../shared/Upvote";
-import { baseUrl } from "../../shared/baseUrl"
+import { baseUrl } from "../shared/baseUrl"
 
 
 function PopularPart() {

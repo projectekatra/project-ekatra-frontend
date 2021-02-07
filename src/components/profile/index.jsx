@@ -3,7 +3,7 @@ import Upvote from "../shared/Upvote";
 import Heading from "../shared/Heading";
 import {Link} from "react-router-dom";
 import Cookies from "js-cookie";
-import { baseUrl } from "../../shared/baseUrl"
+import { baseUrl } from "../shared/baseUrl"
 
 function Profile(){
 

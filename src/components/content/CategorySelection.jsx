@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Select from 'react-select';
-import { baseUrl } from "../../shared/baseUrl"
+import { baseUrl } from "../shared/baseUrl"
 
 const customStyles = {
   container: (provided, state) => ({

@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import {useParams} from "react-router-dom";
-import { baseUrl } from "../../shared/baseUrl"
+import { baseUrl } from "../shared/baseUrl"
 import Similar from "./Similar";
 import Screenshot from "./Screenshot";
 import Main from "./Main";

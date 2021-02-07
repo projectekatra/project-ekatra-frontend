@@ -6,7 +6,7 @@ import SearchButton from "./Search";
 import {useParams} from "react-router-dom";
 import Cards from "./Cards";
 import ErrorMessage from "./ErrorMessage"
-import { baseUrl } from "../../shared/baseUrl"
+import { baseUrl } from "../shared/baseUrl"
 
 function ContentMain()
 {
