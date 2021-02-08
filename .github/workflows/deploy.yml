@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Deploy ReactApp
+name: Deploy Site
 
 # Controls when the action will run. 
 on:
@@ -36,6 +36,17 @@ jobs:
           CI: false
         with:
           cmd: build # will run `yarn build` command
+      - name: Copying CMAKE
+        uses: canastro/copy-file-action@master
+        with:
+          source: CMAKE
+          target: build/CMAKE
+      - name: Copying CNAME
+        uses: canastro/copy-file-action@master
+        with:
+          source: CNAME
+          target: build/CNAME
+        
       - name: Deploy Site to projecekatra.github.io
         uses: cpina/github-action-push-to-another-repository@master
         env:
