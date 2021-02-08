@@ -45,3 +45,4 @@ jobs:
           destination-github-username: 'projectekatra'
           destination-repository-name: 'projectekatra.github.io'
           user-email: prakashaditya369@gmail.com
+          target_branch: main
