@@ -32,6 +32,8 @@ jobs:
           cmd: install # will run `yarn install` command
       - name: Build React App
         uses: borales/actions-yarn@v2.0.0
+        env:
+          CI: false
         with:
           cmd: build # will run `yarn build` command
       - name: Deploy Site to projecekatra.github.io
