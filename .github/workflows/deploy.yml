@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Deploy_ReactApp
+name: Deploy ReactApp
 
 # Controls when the action will run. 
 on:
@@ -19,18 +19,27 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: action checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
       - name: Install NodeJS
         uses: actions/setup-node@v2
         with:
-          node-version: '12'
+          node-version: 12
       - name: Install Yarn
-      - uses: borales/actions-yarn@v2.0.0
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install # will run `yarn install` command
       - name: Build React App
-      - uses: borales/actions-yarn@v2.0.0
+        uses: borales/actions-yarn@v2.0.0
         with:
           cmd: build # will run `yarn build` command
+      - name: Deploy Site to projecekatra.github.io
+        uses: cpina/github-action-push-to-another-repository@master
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'build'
+          destination-github-username: 'projectekatra'
+          destination-repository-name: 'projectekatra.github.io'
+          user-email: prakashaditya369@gmail.com
