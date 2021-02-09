@@ -54,14 +54,14 @@ function PopularPart() {
   
   return (
     <div className="popular-part">
-    <div className= "home-card-theme">
+   {mosthelpful===undefined? <Loading />:<div className= "home-card-theme">
   <div className = "home-card-reason">Most Helpful Resource</div>
-  {mosthelpful===undefined? <Loading />: <SpecialCard heading={mosthelpful.heading} link={mosthelpful.link} description = {mosthelpful.description} author={mosthelpful.author} id={mosthelpful._id} upvote = {mosthelpful.upvotes}/>}
-</div>
-<div className= "home-card-theme" style={{flexWrap: "wrap-reverse"}}>
-  {mostvisited===undefined? <Loading />: <SpecialCard heading={mostvisited.heading} link={mostvisited.link} description = {mostvisited.description} author={mostvisited.author} id={mostvisited._id} upvote = {mostvisited.upvotes}/>}
+   <SpecialCard heading={mosthelpful.heading} link={mosthelpful.link} description = {mosthelpful.description} author={mosthelpful.author} id={mosthelpful._id} upvote = {mosthelpful.upvotes}/>
+</div>}
+{mostvisited===undefined? <Loading />: <div className= "home-card-theme" style={{flexWrap: "wrap-reverse"}}>
+  <SpecialCard heading={mostvisited.heading} link={mostvisited.link} description = {mostvisited.description} author={mostvisited.author} id={mostvisited._id} upvote = {mostvisited.upvotes}/>
   <div className = "home-card-reason">Most Visited Resource</div>
-</div>
+</div>}
       <div className="sub-home-heading">
       Recently Added:
       </div>
