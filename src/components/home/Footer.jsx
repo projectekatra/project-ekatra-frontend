@@ -9,41 +9,19 @@ function Footer() {
       </p>
       <p>
         <a
-          href="mailto: prakashaditya144@gmail.com"
+          href="mailto: projectekatraofficial@gmail.com"
           className="fa fa-envelope icon-link"
           target = "_blank"
         >
           {""}
         </a>
         <a
-          href="https://www.linkedin.com/in/prakashaditya144/"
-          className="fa fa-linkedin icon-link"
+          href="https://github.com/projectekatra"
+          className="fa fa-github icon-link"
           target = "_blank"
         >
           {""}
         </a>
-        <a
-          href="https://twitter.com/_rickaditya_"
-          className="fa fa-twitter icon-link"
-          target = "_blank"
-        >
-          {""}
-        </a>
-        <a
-          href="https://www.facebook.com/144ap"
-          className="fa fa-facebook icon-link"
-          target = "_blank"
-        >
-          {""}
-        </a>
-      </p>
-      <p className="made-love">
-        Made with{" "}
-        <span role="img" aria-label="love">
-          ❤️
-        </span>{" "}
-        by
-        <strong>Aditya Prakash</strong>.
       </p>
       <p className="copyright">
         <span>©Project Ekatra {year}</span>
