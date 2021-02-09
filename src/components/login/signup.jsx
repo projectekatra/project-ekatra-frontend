@@ -6,15 +6,15 @@ import Cookies from "js-cookie";
 function SignUp(props)
 {
 
-var [validity, setValidity] = useState({name: "",email: "",pass: "",cpass: ""})
+var [validity, setValidity] = useState({name: true,email: true, pass: true, cpass: true})
 var [values, setValues] = useState({name: "",email: "",pass: "",cpass: ""})
-var [message, setMessage] = useState({color: "blue",message: ""})
+var [message, setMessage] = useState({color: "#9da6e0",message: ""})
 
 function validateName(e)
 {
 const letter = /^[A-Za-z ]+$/;
 var name = e.target.value
-var check = false
+var check = false;
 if(name.match(letter) && name.length>0)
 {
 check = true;
@@ -72,44 +72,10 @@ setValidity(prevValue=>{return {...prevValue, cpass: check}})
 setValues(prevValue=>{return {...prevValue, cpass: cpass}})
 }
 
-function forValidity(param)
-{
-   if(validity[param]===false)
-   {
-      return <span style={{color: "red",marginRight: "10px",marginTop: "5px",fontSize: ".8rem"}}>&#10008;</span>;
-   }
-   else if(validity[param]===true)
-   {
-   return <span style={{color: "green",marginRight: "10px",marginTop: "7px",fontSize: ".6rem"}}>&#10004;</span>;
-   }
-   else
-   {
-   return;
-   }
-}
 
-function forPassValidity()
-{
-if(validity.pass=== 1)
-{
-return <span style={{color: "green",marginRight: "10px",marginTop: "5px",fontSize: ".6rem"}}>&#10004;</span>;
-}
-else if(validity.pass===2)
-{
-return <span style={{color: "yellow",marginRight: "10px",marginTop: "5px",fontSize: ".8rem"}}>&#10020;</span>
-}
-else if(validity.pass===false)
-{
-return <span style={{color: "red",marginRight: "10px",marginTop: "5px",fontSize: ".8rem"}}>&#10008;</span>
-}
-else
-{
-return;
-}
-}
 function getMessage()
 {
-return <span style={{display: "block", color: message.color, fontSize: "0.8rem", fontWeight: "bolder", fontFamily: "Montserrat"}}> {message.message} </span>
+return <span style={{display: "block", marginTop: "60px", color: message.color, fontSize: "1rem", fontWeight: "bolder", fontFamily: "Montserrat"}}> {message.message} </span>
 }
 function handleSignUP(){
 if(validity.email===true && (validity.pass===1 || validity.pass===2) && validity.name=== true && validity.cpass===true)
@@ -119,7 +85,7 @@ If the email already exists then change the message to red and "Email already ex
 Else change the message to green and "Successful Registerd."
 After login create a cookie with login detail and then redirect to given url or homepage/profile page when created.
 */
-setMessage({color: "blue", message: "Signing Up..."})
+setMessage({color: "#9da6e0", message: "Signing Up..."})
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -128,16 +94,17 @@ setMessage({color: "blue", message: "Signing Up..."})
       fetch(baseUrl+"api/registration", requestOptions)
         .then((response) => {
           if (response.status === 200 || response.status === 201) {
-            setMessage({color: "green",message: "Successfully registered."})
+            setMessage({color: "white",message: "Successfully registered."})
             return response.json();
             }
    else if(response.status===700)
 {
-setMessage({color: "red",message: "Email already exists!!"})
+setMessage({color: "#f7814a",message: "Email already exists!!"})
+setTimeout(()=>{setMessage("")},4000)
 return;
 }     
 else {
-   setMessage({color: "red", message: "Server Error!! Please try again."})
+   setMessage({color: "#f7814a", message: "Server Error!! Please try again."})
    return;
 }
 })
@@ -158,30 +125,28 @@ else {
 })
 
         .catch((error) => {
-        setMessage({color: "red", message: "Server Error!! Please try again."})          
+        setMessage({color: "#f7814a", message: "Server Error!! Please try again."})          
 })
 }
 else
 {
-setMessage({color: "red", message: "All fields should be filled correctly."})
+setMessage({color: "#f7814a", message: "All fields should be filled correctly."})
+setTimeout(()=>{setMessage("")},4000)
 }
 }
 
-return <div class="signup slide-up">
-		<h2 class="form-title" id="signup"><span>or</span>Sign up</h2>
-		<div class="form-holder">
-		    <span className="block-input">
-			<input type="text" value={values.name} id="signupname" class="input" placeholder="Name" onChange = {validateName} /> {forValidity("name")} </span>
-			<span className="block-input">
-			<input type="email" value = {values.email} id = "signupemail" class="input" placeholder="Email" onChange = {validateEmail} /> {forValidity("email")} </span>
-			<span className="block-input">
-			<input type="password" value = {values.pass} id="signuppass" class="input" placeholder="Password" onChange = {validatePassWord} />{forPassValidity()}</span>
-			<span className="block-input">
-			<input type="password" value = {values.cpass} id = "signupcpass" class="input" placeholder="Confirm Password" onChange = {validateCPassWord} />{forValidity("cpass")}</span>
-		</div>
-		<button class="submit-btn" onClick = {handleSignUP}>Sign up</button>
-		{getMessage()}
-	</div>
+return <form className="form-signup" action="" name="form">
+          <label className = "login-label" for="signupname">Name</label>
+          <input className="form-styling" style={validity.name ? {color: "white", background: "rgba(255,255,255,0.3)"}: {color: "red", background: "rgba(255,0,0,0.1)"}} type="text" value={values.name} id="signupname" onChange = {validateName} placeholder=""/>
+          <label className = "login-label" for="signupemail">Email</label>
+          <input className="form-styling" style={validity.email ? {color: "white", background: "rgba(255,255,255,0.3)"}: {color: "red", background: "rgba(255,0,0,0.1)"}} type="email" value = {values.email} id = "signupemail"  placeholder="" onChange = {validateEmail} />
+          <label className = "login-label" for="signuppass">Password</label>
+          <input className="form-styling" style= {!validity.pass?{color: "red", background: "rgba(255,0,0,0.1)"}: validity.pass===2?{color: "blue"}:{color: "green"}} type="password" value = {values.pass} id="signuppass" placeholder="" onChange = {validatePassWord} />
+          <label className = "login-label"  for="signupcpass">Confirm password</label>
+          <input className="form-styling" style= {validity.cpass?{color: "green"}:{color: "red", background: "rgba(255,0,0,0.1)"}} type="password" value = {values.cpass} id = "signupcpass" placeholder="" onChange = {validateCPassWord}/>
+          <a className="btn-signup" onClick = {handleSignUP} >Sign Up</a>
+          {getMessage()}
+</form>
 }
 
 export default SignUp;

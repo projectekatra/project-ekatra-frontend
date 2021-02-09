@@ -1,29 +1,26 @@
 import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import Profile from "./ProfileButton";
-import $ from 'jquery'
+
 function Navigator(props) {
 
-  function jQueryCode(){
-  var y_prev = 100;
-window.addEventListener('scroll', function() {
-var y=window.pageYOffset;
-
-if(y>300 && (y-y_prev)>0)
-{
-
-  $("nav").hide();
-
-}
-else
-{
-  $("nav").show();
-}
-y_prev = y;
-});
-  }
   useEffect(()=>{
-  jQueryCode();
+       var y_prev = 100;
+	window.addEventListener('scroll', function() {
+	var y=window.pageYOffset;
+
+	if(y>300 && (y-y_prev)>0)
+	{
+
+	  document.querySelector("nav").style.opacity= 0;
+
+	}
+	else
+	{
+	  document.querySelector("nav").style.opacity = 1;
+	}
+	y_prev = y;
+  })
   })
 
   return (
