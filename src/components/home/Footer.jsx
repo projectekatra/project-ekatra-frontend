@@ -37,14 +37,6 @@ function Footer() {
           {""}
         </a>
       </p>
-      <p className="made-love">
-        Made with{" "}
-        <span role="img" aria-label="love">
-          ❤️
-        </span>{" "}
-        by
-        <strong>Aditya Prakash</strong>.
-      </p>
       <p className="copyright">
         <span>©Project Ekatra {year}</span>
       </p>
