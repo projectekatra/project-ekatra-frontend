@@ -352,6 +352,7 @@ a.btn-signup:hover, a.btn-signin:hover {
 /* refresh button styling */
 
 #refresh {
+    visibility: hidden;
     position: absolute;
     bottom: -20px;
     right: -20px; 
