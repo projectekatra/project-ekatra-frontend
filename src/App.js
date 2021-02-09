@@ -7,7 +7,6 @@ import Navigator from "./components/Navigator";
 import Cookies from "js-cookie";
 import Login from "./components/login/index.jsx";
 import Profile from "./components/profile/index";
-import Temp from "./components/temp/index";
 import ContentMain from "./components/content/index.jsx"
 import Contributor from "./components/contributor/index.jsx"
 import { createBrowserHistory } from 'history';
@@ -69,8 +68,6 @@ fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
       <Route path="/contribute">
       <Navigator background="#50a3a2" />
       <Contribute /></Route>
-      <Route path="/temp">
-      <Temp /></Route>
       <Route path="/contributors">
       <Navigator background="#F7A278" />
       <Contributor /></Route>
