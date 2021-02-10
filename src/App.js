@@ -4,6 +4,7 @@ import Homecontent from "./components/home/Home";
 import Contribute from "./components/contribute/Contribute";
 import PostPage from "./components/post/PostPage";
 import Navigator from "./components/Navigator";
+import Activate from "./components/Activate";
 import Cookies from "js-cookie";
 import Login from "./components/login/index.jsx";
 import Profile from "./components/profile/index";
@@ -60,6 +61,9 @@ fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
       </Route>
       <Route path = "/login/:Linked?">
       {Cookies.get('sessions')!==undefined ? <Redirect to="/" /> : <Login />}
+      </Route>
+      <Route path = "/activate/:Hash">
+      <Activate />
       </Route>
       <Route path = "/profile">
       <Navigator background= "#ffdcb8"/>
