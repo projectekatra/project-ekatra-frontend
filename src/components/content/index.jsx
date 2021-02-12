@@ -58,7 +58,7 @@ var [isLoading, setloading] = useState(true);
 
 if(first)
 {
-if(Id===undefined)
+if(Id===undefined || Id==="all")
 document.title = "Resources | Project Ekatra"
 else
 document.title = Id+" | Project Ekatra"
