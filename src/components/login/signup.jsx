@@ -115,8 +115,9 @@ else {
        fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
 .then((responses) => responses.json())
 .then((datas) => {
+        document.querySelector(".success-signup").classList.add("success-signup-up");
 	Cookies.set("data",{name: datas.name,email: datas.email, upvotes: datas.upvoted, visited: datas.visited})
-	window.open(props.link,"_self")
+	setTimeout(()=>{window.open(props.link,"_self")}, 2000);
   })
  .catch(err => {
 	 console.log(err)
@@ -146,6 +147,12 @@ return <form className="form-signup" action="" name="form">
           <input className="form-styling" style= {validity.cpass?{color: "green"}:{color: "red", background: "rgba(255,0,0,0.1)"}} type="password" value = {values.cpass} id = "signupcpass" placeholder="" onChange = {validateCPassWord}/>
           <a className="btn-signup" onClick = {handleSignUP} >Sign Up</a>
           {getMessage()}
+          <div className = "success-signup">
+          <span style={{color: "green", fontSize: "6rem"}}>&#10004;</span><br />
+          <span>Signed Up Successfully</span><br />
+          <span>Check Your Email for Verification Link.</span><br />
+          <span>Redirecting ....</span>
+          </div>
 </form>
 }
 
