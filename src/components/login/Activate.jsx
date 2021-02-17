@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {useParams} from "react-router-dom";
-import { baseUrl } from "./shared/baseUrl";
+import { baseUrl } from "../shared/baseUrl";
 
 function Activate() {
   
@@ -24,6 +24,9 @@ function Activate() {
           {
           setMessage({message: "Server Side Error. Please try again later!!",color: "red"})
           }
+          setTimeout(()=>{setMessage({message: "Redirecting to projectekatra.github.io", color: "black"});
+          window.open("https://projectekatra.github.io/", "_self");
+          }, 2000)
       })
       }
   

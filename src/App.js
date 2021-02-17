@@ -4,7 +4,8 @@ import Homecontent from "./components/home/Home";
 import Contribute from "./components/contribute/Contribute";
 import PostPage from "./components/post/PostPage";
 import Navigator from "./components/Navigator";
-import Activate from "./components/Activate";
+import Activate from "./components/login/Activate";
+import Reset from "./components/login/Reset";
 import Cookies from "js-cookie";
 import Login from "./components/login/index.jsx";
 import Profile from "./components/profile/index";
@@ -65,6 +66,9 @@ fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
       <Route path = "/activate/:Hash">
       <Activate />
       </Route>
+      <Route path = "/reset/:Hash">
+      <Reset />
+      </Route>
       <Route path = "/profile">
       <Navigator background= "#ffdcb8"/>
       <Profile />
@@ -75,7 +79,7 @@ fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
       <Route path="/contributors">
       <Navigator background="#F7A278" />
       <Contributor /></Route>
-<Route path="*">
+      <Route path="*">
             <NoMatch />
           </Route>
       </Switch>
