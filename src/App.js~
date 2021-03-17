@@ -84,7 +84,7 @@ fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
       <RoadMap />
       </Route>
       <Route path = "/about">
-      <Navigator background= "#d3e0ea"/>
+      <Navigator background= "#ffb26b"/>
       <About />
       </Route>
       <Route path="*">
