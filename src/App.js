@@ -9,12 +9,13 @@ import Reset from "./components/login/Reset";
 import Cookies from "js-cookie";
 import Login from "./components/login/index.jsx";
 import Profile from "./components/profile/index";
+import RoadMap from "./components/roadmap/index";
 import ContentMain from "./components/content/index.jsx"
 import Contributor from "./components/contributor/index.jsx"
 import { createBrowserHistory } from 'history';
 import NoMatch from "./components/NoMatch";
 import {baseUrl} from "./components/shared/baseUrl";
-
+import About from "./components/About";
 import {
   HashRouter as Router,
   Switch,
@@ -79,6 +80,13 @@ fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
       <Route path="/contributors">
       <Navigator background="#F7A278" />
       <Contributor /></Route>
+      <Route path = "/roadmap">
+      <RoadMap />
+      </Route>
+      <Route path = "/about">
+      <Navigator background= "#d3e0ea"/>
+      <About />
+      </Route>
       <Route path="*">
             <NoMatch />
           </Route>

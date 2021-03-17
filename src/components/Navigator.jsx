@@ -64,6 +64,16 @@ function Navigator(props) {
               Contributors
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/about" className="navbar-text nav-navbar-item">
+              About
+            </Link>
+          </li>
+          <li className="nav-item">
+            <a href="https://forms.gle/ugNLq6bQFUsMLCpZA" className="navbar-text nav-navbar-item" target="_blank">
+              Feedback
+            </a>
+          </li>
           <li className = "nav-item">
           <Profile />
           </li>
