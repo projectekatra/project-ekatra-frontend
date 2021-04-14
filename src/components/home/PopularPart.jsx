@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./SingleCard";
 import Loading from "./Loading";
 import Heading from "../shared/Heading";
 import Upvotes from "../shared/Upvote";
-import { baseUrl } from "../shared/baseUrl"
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { baseUrl } from "../shared/baseUrl";
+import '@splidejs/splide/dist/css/themes/splide-default.min.css';
 
 
 function PopularPart() {
+  
   
   var [recentdata, setData] = useState()
   var [mosthelpful, setHelpful] = useState()
@@ -33,10 +36,9 @@ function PopularPart() {
   
   function crouselSlides(){
   var array = []
-  array.push(<div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active"><div class="mx-auto d-block"><Card resource={recentdata[0]} /></div></div>)
-  for(var i=1;i<recentdata.length;i++)
+  for(var i=0;i<recentdata.length;i++)
   {
-  array.push(<div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3"><div class="mx-auto d-block"><Card resource={recentdata[i]} /></div></div>)
+  array.push(<SplideSlide><Card resource={recentdata[i]} /></SplideSlide>)
   }
   return array;
   }
@@ -68,21 +70,9 @@ function PopularPart() {
       <div className="sub-recent-post-part">
         <div className="sub-recent-main-post-part">
           {recentdata===undefined? <Loading />:
-        	<div class="container-fluid">
-        		<div id="carousel-example" class="carousel slide" data-ride="carousel">
-        			<div class="carousel-inner row w-100 mx-auto" role="listbox">
-            			{crouselSlides()}
-        			</div>
-        			<a class="carousel-control-prev" href="#carousel-example" role="button" data-slide="prev" style={{width: "5px"}}>
-						<span style={{color: "black", fontSize: "3.5rem"}}>&#x2039;</span>
-						<span class="sr-only">Previous</span>
-					</a>
-					<a class="carousel-control-next" href="#carousel-example" role="button" data-slide="next" style={{width: "5px"}}>
-						<span style={{color: "black", fontSize: "3.5rem"}}>&#x203A;</span>
-						<span class="sr-only">Next</span>
-					</a>
-        		</div>
-        	</div>
+        	<Splide options = {{type: "loop", perPage: 4, width: "100%", perMove: 1, gap: "1.3em", pagination: false, autoplay: true,keyboard: true, drag: true, breakpoints: {576: {perPage: 1}, 768: {perPage: 2}, 991: {perPage: 3}}}}>
+        	{crouselSlides()}
+        	</Splide>
         	}
         </div>
       </div>
