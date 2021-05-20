@@ -1,14 +1,14 @@
 import React,{useState} from "react";
 import { baseUrl } from "../shared/baseUrl"
 import Cookies from "js-cookie";
-
+import SubmitButton from "./button.jsx";
 
 function SignUp(props)
 {
 
 var [validity, setValidity] = useState({name: true,email: true, pass: true, cpass: true})
 var [values, setValues] = useState({name: "",email: "",pass: "",cpass: ""})
-var [message, setMessage] = useState({color: "#9da6e0",message: ""})
+var [submit, setSubmit] = useState(0);
 
 function validateName(e)
 {
@@ -72,11 +72,6 @@ setValidity(prevValue=>{return {...prevValue, cpass: check}})
 setValues(prevValue=>{return {...prevValue, cpass: cpass}})
 }
 
-
-function getMessage()
-{
-return <span style={{display: "block", marginTop: "60px", color: message.color, fontSize: "1rem", fontWeight: "bolder", fontFamily: "Montserrat"}}> {message.message} </span>
-}
 function handleSignUP(){
 if(validity.email===true && (validity.pass===1 || validity.pass===2) && validity.name=== true && validity.cpass===true)
 {
@@ -85,7 +80,7 @@ If the email already exists then change the message to red and "Email already ex
 Else change the message to green and "Successful Registerd."
 After login create a cookie with login detail and then redirect to given url or homepage/profile page when created.
 */
-setMessage({color: "#9da6e0", message: "Signing Up..."})
+setSubmit(1)
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -94,28 +89,32 @@ setMessage({color: "#9da6e0", message: "Signing Up..."})
       fetch(baseUrl+"api/registration", requestOptions)
         .then((response) => {
           if (response.status === 200 || response.status === 201) {
-            setMessage({color: "white",message: "Successfully registered."})
+            props.display("Check Email for activation link", "success")
+            setSubmit(2)
             return response.json();
             }
    else if(response.status===700)
 {
-setMessage({color: "#f7814a",message: "Email already exists!!"})
-setTimeout(()=>{setMessage("")},4000)
+props.display("Email Already Exists", "error")
+setSubmit(0)
 return;
 }     
 else {
-   setMessage({color: "#f7814a", message: "Server Error!! Please try again."})
+   props.display("Server Error !! Please try again.", "error")
+   setSubmit(0)
    return;
 }
 })
 .then((data) => {
        if(data!==undefined)
        {
+       setSubmit(2)
+       props.display("Signup Successfully.", "success")
        Cookies.set('sessions', data, { expires: 7 });
        fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
 .then((responses) => responses.json())
 .then((datas) => {
-        document.querySelector(".success-signup").classList.add("success-signup-up");
+        
 	Cookies.set("data",{name: datas.name,email: datas.email, upvotes: datas.upvoted, visited: datas.visited})
 	setTimeout(()=>{window.open(props.link,"_self")}, 2000);
   })
@@ -126,13 +125,14 @@ else {
 })
 
         .catch((error) => {
-        setMessage({color: "#f7814a", message: "Server Error!! Please try again."})          
+        setSubmit(0)
+        props.display("Server Error!! Please try again.", "error")         
 })
 }
 else
 {
-setMessage({color: "#f7814a", message: "All fields should be filled correctly."})
-setTimeout(()=>{setMessage("")},4000)
+setSubmit(0)
+props.display("All fields should be filled correctly", "warning")
 }
 }
 
@@ -145,14 +145,7 @@ return <form className="form-signup" action="" name="form">
           <input className="form-styling" style= {!validity.pass?{color: "red", background: "rgba(255,0,0,0.1)"}: validity.pass===2?{color: "blue"}:{color: "green"}} type="password" value = {values.pass} id="signuppass" placeholder="" onChange = {validatePassWord} />
           <label className = "login-label"  for="signupcpass">Confirm password</label>
           <input className="form-styling" style= {validity.cpass?{color: "green"}:{color: "red", background: "rgba(255,0,0,0.1)"}} type="password" value = {values.cpass} id = "signupcpass" placeholder="" onChange = {validateCPassWord}/>
-          <a className="btn-signup" onClick = {handleSignUP} >Sign Up</a>
-          {getMessage()}
-          <div className = "success-signup">
-          <span style={{color: "green", fontSize: "6rem"}}>&#10004;</span><br />
-          <span>Signed Up Successfully</span><br />
-          <span>Check Your Email for Verification Link.</span><br />
-          <span>Redirecting ....</span>
-          </div>
+          <SubmitButton submit = {submit} onFormSubmit = {handleSignUP} message = "Sign Up" successmess = "Signned Up" progressmess = "Signing Up"/>
 </form>
 }
 

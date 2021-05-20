@@ -82,6 +82,7 @@ function CategorySelection(props) {
       isLoading = {isLoading}
       isDisabled = {isdisabled}
       options = {options}
+      cacheOptions = {true}
       menuShouldScrollIntoView boolean = {true}
       placeholder= {isLoadingMessage}
       onChange={handleChange}
