@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
+
 @font-face{
-font-family: 'reason';
-src: url('SCRIPTIN.ttf');
+src: url("ACaslonPro-Regular.otf");
+font-family: Acaslonpro;
 }
 
 @font-face{
@@ -196,20 +197,6 @@ text-decoration: none;
 }
 
 
-.upvote-login-box {
-width: 200px;
-height: 100px;
-position: fixed;
-top: 50%;
-left: 50%;
-offset-position: top;
-transform: translate(-50%,-50%);
-background: #d6efc7;
-border: 1px #96bb7c solid;
-border-radius: 10px;
-}
-
-
 .home-card-theme{
 display:flex;
 justify-content: center;
@@ -222,7 +209,7 @@ margin-bottom: 40px;
 .home-card-reason{
 text-align: center;
 width: 400px;
-font-family: 'reason';
+font-family: "Cormorant Upright", serif;
 font-size: 3rem;
 color: #007965;
 padding-bottom: 20px;
@@ -269,6 +256,37 @@ padding-right: 30px;
 justify-content: space-between;
 font-family: Ubuntu;
 }
-.tip-main{
-background-color: #E8FDF2;
+
+.home-tip-main-slide{
+display: flex;
+align-items:center;
+color: #ffaaa7;
+font-size: 1.3rem;
+font-family: Acaslonpro;
+padding-left:10px;
+padding-right: 10px;
+}
+
+.tip-title
+{
+margin: 10px 0px 0px 20px;
+font-size: 3rem;
+font-family: Acaslonpro;
+color: skyblue;
+}
+
+.home-tip-main-slide-sub{
+text-align: center;
+margin:auto;
+}
+
+.home-tip-main-slide-sub h1{
+color: #126e82;
+font-family: "Cormorant Upright", serif;
+font-weight: normal;
+margin-top: 0px;
+}
+.home-tip-main-slide-sub p{
+margin: auto;
+color: black;
 }

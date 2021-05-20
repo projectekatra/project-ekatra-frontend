@@ -1,5 +1,4 @@
 import React,{useState} from "react";
-import Pagination from "react-js-pagination";
 import CategorySelection from "./CategorySelection";
 import CategorySelectionpref from "./CategorySelectionpref";
 import SearchButton from "./Search";
@@ -7,6 +6,7 @@ import {useParams} from "react-router-dom";
 import Cards from "./Cards";
 import ErrorMessage from "./ErrorMessage"
 import { baseUrl } from "../shared/baseUrl"
+import Pagination from '@material-ui/lab/Pagination';
 
 function ContentMain()
 {
@@ -127,20 +127,14 @@ return <div className = "contents-main">
 <div className = "content-part">
 <div className="main-post-part" style={{marginLeft: "10px", marginRight: "10px", backgroundColor: "white"}}>
 <Cards resources = {resources.slice((activePage-1)*6,activePage*6)} check = {criteriaChange}/>
-<div style={{display: "flex", justifyContent: "center",marginTop: "20px", color: "green"}}>
-<Pagination
-          activePage={activePage}
-          itemsCountPerPage={7}
-          totalItemsCount={resources.length}
-          pageRangeDisplayed={3}
-          itemClass= "page-item"
-          firstPageText = "First"
-          lastPageText = "Last"
-          linkClass= "page-link pagination-link"
-          hideDisabled = {true}
-          innerClass = "pagination pagination-content-page"
-          onChange={(x)=>{setactivePage(x); window.scrollTo(0,0)}}
-        />
+<div style={{display: "flex", justifyContent: "center",marginTop: "20px"}}>
+<Pagination 
+  page = {activePage}
+  defaultPage = {activePage}
+  count = {parseInt(resources.length/7)}
+  onChange = {(event, value) => {setactivePage(value); window.scrollTo(0,0)}}
+  boundaryCount = {3}
+	color="primary.light" />
 </div>
 </div>
 </div>

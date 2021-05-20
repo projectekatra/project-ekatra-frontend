@@ -1,5 +1,4 @@
 import React from "react";
-import ReactGA from 'react-ga';
 import Homecontent from "./components/home/Home";
 import Contribute from "./components/contribute/Contribute";
 import PostPage from "./components/post/PostPage";
@@ -26,11 +25,6 @@ import {
 
 export default function App() {
   const history = createBrowserHistory();
-  history.listen(location => {
-  ReactGA.set({ page: location.pathname });
-  ReactGA.pageview(location.pathname);
-});
-
 if(Cookies.get("data")===undefined && Cookies.get("sessions")!==undefined)
 {
 fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
@@ -54,14 +48,15 @@ fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
       <Homecontent />
       </Route>
       <Route path="/post/:Id">
-      <Navigator background="white" />
+      <Navigator/>
       <PostPage />
       </Route>
       <Route path = "/contents/:Id?/:Search?">
-      <Navigator background = "white" />
+      <Navigator/>
       <ContentMain />
       </Route>
       <Route path = "/login/:Linked?">
+      <Navigator/>
       {Cookies.get('sessions')!==undefined ? <Redirect to="/" /> : <Login />}
       </Route>
       <Route path = "/activate/:Hash">
@@ -71,20 +66,20 @@ fetch(baseUrl+"api/userData/"+Cookies.getJSON("sessions").id)
       <Reset />
       </Route>
       <Route path = "/profile">
-      <Navigator background= "#ffdcb8"/>
+      <Navigator/>
       <Profile />
       </Route>
       <Route path="/contribute">
-      <Navigator background="#50a3a2" />
+      <Navigator/>
       <Contribute /></Route>
       <Route path="/contributors">
-      <Navigator background="#F7A278" />
+      <Navigator/>
       <Contributor /></Route>
       <Route path = "/roadmap">
       <RoadMap />
       </Route>
       <Route path = "/about">
-      <Navigator background= "#d3e0ea"/>
+      <Navigator/>
       <About />
       </Route>
       <Route path="*">

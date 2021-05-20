@@ -2,24 +2,24 @@
 
 .contribute_main_container {
   font-family: "Source Sans Pro", sans-serif;
-  color: white;
+  color: #4aa96c;
   margin: 0; 
   padding: 50px 0px;
-  background-color: #50a3a2;
+  background-color: #d7fbe8;
   text-align: center;
 }
 .contribute_container {
   border: solid;
   border-width: 1px;
-  border-color: white;
+  border-color: #d7fbe8;
   margin-top: 50px;
   padding: 20px 0px;
   width: 350px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 1px rgb(255, 255, 255),
-    0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 -3em 3em rgba(74, 169, 108, 0.1), 0 0 0 1px rgb(74, 169, 108),
+    0.3em 0.3em 1em rgba(74, 169, 108, 0.3);
 }
 
 .contribute_container h1 {
@@ -43,9 +43,6 @@
   font-weight: 300;
 }
 
-.close:hover {
-  cursor: pointer;
-}
 
 .contribute_container textarea {
   border: 1px solid rgba(252, 252, 252, 0.9);
@@ -63,35 +60,5 @@
   font-weight: 300;
 }
 
-.contribute_container button {
-  margin: auto;
-  appearance: none;
-  outline: 0;
-  background-color: white;
-  border: 2px solid #1d3b3b;
-  padding: 10px 15px;
-  color: #50a3a2;
-  border-radius: 3px;
-  width: 250px;
-  font-size: 18px;
-}
-
-.contribute_container button:hover {
-  background-color: #1d3b3b;
-  color: white;
-}
-
-.error_message {
-  display: flex;
-  justify-content: space-between;
-  /* padding: 10px 20px; */
-  font-size: 1.1rem;
-  font-weight: bolder;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2000;
-}
 
 

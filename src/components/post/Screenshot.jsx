@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Skeleton from '@material-ui/lab/Skeleton';
 
 
 function Screenshot(props){
@@ -15,8 +16,8 @@ setImage(data.lighthouseResult.audits["final-screenshot"].details.data)
 }
 
 
-return<div style={{textAlign: "center", marginTop: "20px", marginBottom: "40px"}}>
-{image?<img src={image} alt={props.url} className="post-page-image" />:<img src = "/images/blurred.jpg" alt="Blurred"  className = "post-page-image"/>}
+return<div style={{display: "flex", justifyContent: "center", width: "100%", marginTop: "20px", marginBottom: "40px"}}>
+{image?<img src={image} alt={props.url} className="post-page-image" />:<Skeleton variant="rect" className = "post-page-image" height={400} animation = "wave"/>}
 </div>
 }
 

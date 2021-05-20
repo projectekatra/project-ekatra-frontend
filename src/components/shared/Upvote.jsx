@@ -1,19 +1,62 @@
 import React,{useState} from "react"
 import Cookies from "js-cookie"
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
-import {baseUrl} from "./baseUrl"
-import {Link} from "react-router-dom";
+import {baseUrl} from "./baseUrl";
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
+import {Link, Redirect} from "react-router-dom";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function Upvote(props){
 
 let [upvotes,setUpvotes] = useState(props.upvote);
 let [ishovered, setIshovered] = useState(false);
 let [showBox, setshowBox] = useState(false);
+let [redirect, setRedirect] = useState(false);
 let [iconstatus,setIconStatus] = useState((Cookies.get("sessions")===undefined || Cookies.get("data")===undefined || Cookies.getJSON("data").upvotes===undefined)? false: Cookies.getJSON("data").upvotes.includes(props.id))
 
+if(redirect)
+return <Redirect  to={"/login/"+encodeURIComponent(window.location.href)} />
 
 function DialogueBox(){
-return <span className="upvote-login-box"><span style={{fontSize: "2rem", position: "absolute", top: "10px", right: "10px", color: "#184d47"}} onClick={()=> {setshowBox(false)}}>&#10006;</span><Link to ={"/login/"+encodeURIComponent(window.location.href)} style={{position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", fontSize: "1.2rem", color: "#7c9473"}}>Login/SignUp</Link></span>
+
+function handleDialogClose(){
+setshowBox(false);
+}
+
+function handleOpenLink(){
+     setRedirect(true)
+}
+return <Dialog 
+					open = {showBox}
+					TransitionComponent = {Transition}
+					keepMounted
+					onClose = {handleDialogClose}
+					aria-labelledby = "login alert"
+					>
+					<DialogTitle id="alert-dialog-slide-title">{"You Aren't Logged In !!"}</DialogTitle>
+					<DialogContent>
+          <DialogContentText id="alert-dialog-slide-description">
+            Do you want to Login/SignUp to mark the content helpful?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleOpenLink} color="primary">
+            Yes
+          </Button>
+          <Button onClick={handleDialogClose} color="primary">
+            No
+          </Button>
+        </DialogActions>
+      </Dialog>
 }
 
 function handleClick(){
@@ -45,6 +88,7 @@ userData_cookie.upvotes.push(props.id)
 what_to_do = 1;
 }
 }
+setUpvotes((prevValue)=>prevValue+what_to_do)
 Cookies.set("data", userData_cookie);
 const to_pass = {id: props.id, value: what_to_do, userId: Cookies.getJSON("sessions").id}
 const requestOptions = {
@@ -53,8 +97,6 @@ const requestOptions = {
         body: JSON.stringify(to_pass)
       };
 fetch(baseUrl+"api/upvote",requestOptions)
-.then((response)=> {setUpvotes((prevValue)=>prevValue+what_to_do)})
-.catch(error=>{console.log(error)})
 setIconStatus(Cookies.getJSON("data").upvotes.includes(props.id))
 }
 }
