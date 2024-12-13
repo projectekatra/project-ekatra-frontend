@@ -148,29 +148,10 @@ function Navigator(props) {
                 aria-label="User Profile"
                 aria-controls="profile-menu"
                 aria-haspopup="true"
-                onClick={handleMenu}
                 color="inherit"
               >
-              	<img className = "nav-profile-image" src="/images/user.png" alt="Profile Pic"/>
+              	<Link to = "/profile" ><img className = "nav-profile-image" src="/images/user.png" alt="Profile Pic"/></Link>
               </IconButton>
-              <Menu
-                id="profile-menu"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'right',
-                }}
-                open={menuOpen}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
           		</div>
           		
           }
