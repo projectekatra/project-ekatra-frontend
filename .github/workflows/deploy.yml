@@ -21,32 +21,41 @@ jobs:
       - name: action checkout
         uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
+      # Install NodeJS v18
       - name: Install NodeJS
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 12
+          node-version: 18
+
+      # Install Yarn
       - name: Install Yarn
         uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install # will run `yarn install` command
+
+      # Build React App
       - name: Build React App
         uses: borales/actions-yarn@v2.0.0
         env:
           CI: false
         with:
           cmd: build # will run `yarn build` command
+
+      # Copy CMAKE to the build directory
       - name: Copying CMAKE
         uses: canastro/copy-file-action@master
         with:
           source: CMAKE
           target: build/CMAKE
+
+      # Copy CNAME to the build directory
       - name: Copying CNAME
         uses: canastro/copy-file-action@master
         with:
           source: CNAME
           target: build/CNAME
         
+      # Deploy Site to projecekatra.github.io
       - name: Deploy Site to projecekatra.github.io
         uses: cpina/github-action-push-to-another-repository@master
         env:
@@ -55,5 +64,5 @@ jobs:
           source-directory: 'build'
           destination-github-username: 'projectekatra'
           destination-repository-name: 'projectekatra.github.io'
-          user-email: prakashaditya369@gmail.com
+          user-email: prakashaditya144@gmail.com
           target-branch: main
